@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSCLEMONEY - Gym Website</title>
+    <style>
+        
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #121212;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.text h1 {
+    font-size: 2.5em;
+    -webkit-text-stroke: 2px aqua;
+  
+}
+
+.text h2 {
+    font-size: 1.7em;
+    -webkit-text-stroke: 2px aqua;
+    margin: 10px 0;
+}
+
+.text p {
+    font-size: 1.0em;
+    color: rgb(159, 160, 160);
+    
+}
+a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s, border 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+    color: #fff;
+    background-color: #00ffff;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+    text-decoration: underline;
+}
+
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,255,255,0.1) 0%, rgba(0,255,255,0.3) 50%, rgba(0,255,255,0.1) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 5px;
+}
+
+a:hover::before {
+    opacity: 1;
+}
+
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #00ffff;
+    bottom: -3px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+header {
+    background: #000;
+    color: #00ffff;
+    padding: 10px 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('front.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+header h1 {
+    float: left;
+    font-size: 1.5em;
+}
+
+nav ul {
+    float: right;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+section#home .container {
+    text-align: center;
+}
+
+section h1 {
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    -webkit-text-stroke: 2px aqua;
+}
+
+section h2 {
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+section p {
+    color: #b0b0b0;
+}
+
+.img {
+    display: inline-block;
+    width: 30%;
+    margin: 1.66%;
+    text-align: center;
+}
+
+.img img {
+    width: 100%;
+    height: 50vh;
+    border: 2px solid #00ffff;
+}
+
+.img h3, .img p {
+    margin-top: 10px;
+}
+
+.footer {
+    margin-top: 40px;
+}
+
+.footerlist {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pricelist {
+    background: #000;
+    color: #fff;
+    border: 1px solid #00ffff;
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.pricelist h3 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    -webkit-text-stroke: 1px aqua;
+}
+
+.pricelist ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pricelist ul li {
+    margin: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.pricelist ul li:before {
+    content: '•';
+    color: #00ffff;
+    position: absolute;
+    left: 0;
+}
+
+.pricelist button {
+    background: #00ffff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pricelist button:hover {
+    background: #fff;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+
+#contact {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+#contact h1 {
+    color: #0c0c0c;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    -webkit-text-stroke: 2px aqua;
+}
+
+#contact p {
+    color: #b0b0b0;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #121212;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+    color: #666;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    outline: none;
+    border-color: #00ffff;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #fff;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    header h1, nav ul {
+        float: none;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    section#home .container {
+        text-align: center;
+    }
+
+    .footerlist {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .img {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .contact-form {
+        padding: 10px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>MUSCLEMONEY</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="home">
+    <div class="container">
+        <div class="text">
+            <h1>HI THIS IS MUSCLEMONEY</h1>
+            <h1>GYM TRAINER</h1>
+            <p>Your go-to for fitness. We offer tailored workout plans, expert guidance, and a supportive community. Start your journey today.</p>
+        </div>
+
+        <div class="offer">
+            <h1>WHAT WE OFFER</h1>
+        </div>
+
+        <div class="container">
+            <div class="img">
+                <img src="muscle building.jpg" alt="Muscle Building">
+                <h3>BODY BUILDING</h3>
+            </div>
+            <div class="img">
+                <img src="weight gain1.jpg" alt="Weight Gain">
+                <h3>WEIGHT GAIN</h3>
+            </div>
+            <div class="img">
+                <img src="weight loss.jpg" alt="Weight Loss">
+                <h3>WEIGHT LOSS</h3>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h1>PRICING</h1>
+        </div>
+
+        <div class="footerlist">
+            <div class="pricelist">
+                <i class='bx bx-dumbbell'></i>
+                <h3><span>6</span> MONTH</h3>
+                <h4>$50/ <span>M</span> <sub>(SINGLE CLASS)</sub></h4>
+                <ul>
+                    <li>Free Riding</li>
+                    <li>Unlimited Equipment</li>
+                    <li>Personal Trainer</li>
+                    <li>Weight Losing Classes</li>
+                    <li>Month to Month</li>
+                </ul>
+                <button type="button" class="btn"><a href="subscription form1.html">JOIN NOW</a></button>
+            </div>
+            <div class="pricelist">
+                <i class='bx bx-dumbbell'></i>
+                <h3><span>9</span> MONTH</h3>
+                <h4>$80/ <span>M</span> <sub>(SINGLE CLASS)</sub></h4>
+                <ul>
+                    <li>Free Riding</li>
+                    <li>Unlimited Equipment</li>
+                    <li>Personal Trainer</li>
+                    <li>Weight Losing Classes</li>
+                    <li>Month to Month</li>
+                </ul>
+                <button type="button" class="btn"><a href="subscriptionform2.html">JOIN NOW</a></button>
+            </div>
+            <div class="pricelist">
+                <i class='bx bx-dumbbell'></i>
+                <h3><span>12</span> MONTH</h3>
+                <h4>$120/ <span>M</span> <sub>(SINGLE CLASS)</sub></h4>
+                <ul>
+                    <li>Free Riding</li>
+                    <li>Unlimited Equipment</li>
+                    <li>Personal Trainer</li>
+                    <li>Weight Losing Classes</li>
+                    <li>Month to Month</li>
+                </ul>
+                <button type="button" class="btn"><a href="subscriptionform3.html">JOIN NOW</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="text1">
+            <h1>ABOUT US</h1>
+        </div>
+        <div class="container">
+            <div class="img">
+                <img src="deadlift.jpg" alt="Deadlift">
+                <h3>BODY BUILDING</h3>
+                <p>Become a champion with MUSCLEMONEY's specialized bodybuilding programs. Our trainers will maximize your muscle growth and definition, backed by top-notch equipment and a supportive community.</p>
+            </div>
+            <div class="img">
+                <img src="weight.jpg" alt="Weight Gain">
+                <h3>WEIGHT GAIN</h3>
+                <p>Bulk up with MUSCLEMONEY's personalized training and nutrition plans. Our experienced trainers will help you build muscle and achieve your weight gain goals, boosting your confidence along the way.</p>
+            </div>
+            <div class="img">
+                <img src="access.png" alt="Weight Loss">
+                <h3>WEIGHT LOSS</h3>
+                <p>Transform your body with MUSCLEMONEY's tailored weight loss programs. Our expert trainers and cutting-edge equipment will guide you to your ideal weight, supported by a welcoming community.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-img">
+                <img src="personal trainer.jpeg" alt="Personal Trainer">
+            </div>
+            <div class="footer-data">
+                <h2>ABOUT US</h2>
+                <p>Welcome to MUSCLEMONEY, where fitness meets passion and dreams come true. Located in DreamLand, our gym is a haven for those with big aspirations. Our experienced trainers are devoted to helping you reach your full potential through personalized programs and top-notch equipment. What truly distinguishes us is our commitment to our members; you'll be welcomed into a supportive community that feels like family. Beyond the gym, we're dedicated to making a positive impact through charitable efforts and community programs. Join us at MUSCLEMONEY, where anything is achievable.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="text1">
+            <h1>SERVICES</h1>
+        </div>
+        <div class="paragraph">
+            <h4>With Musclemoney Gyms all over the world, each facility offers services unique to the area & needs of its members.</h4>
+            <p>Below are some of the services & features found at Powerhouse Gyms worldwide. For services available in your area, please visit our locations page to find your gym’s unique offerings.</p>
+        </div>
+        <div class="container">
+            <div class="img">
+                <img src="equipment.png" alt="Equipment">
+                <h2>State-of-the-Art Equipment</h2>
+                <p>Each Powerhouse facility offers high quality cardio & strength equipment.</p>
+            </div>
+            <div class="img">
+                <img src="group-classes.png" alt="Group Classes">
+                <h2>Group Classes</h2>
+                <p>We offer classes for yoga, spin, Zumba, Circuit Training, MX4 and more.</p>
+            </div>
+            <div class="img">
+                <img src="personal-trainers.png" alt="Personal Trainers">
+                <h2>Personal Trainers</h2>
+                <p>Maximize your workout with the help of our personal trainers.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="img">
+                <img src="physique.jpg" alt="Physique Competition">
+                <h2>Physique Competition</h2>
+                <p>We offer training programs for bodybuilders & physique competitors.</p>
+            </div>
+            <div class="img">
+                <img src="nutrition.webp" alt="Nutrition Counseling">
+                <h2>Nutrition Counseling</h2>
+                <p>Nutrition plans are available to ensure you reach your fitness goals.</p>
+            </div>
+            <div class="img">
+                <img src="membership.jpeg" alt="Membership">
+                <h2>Membership</h2>
+                <p>Membership plans are affordable and flexible. Join us now!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h1>CONTACT US</h1>
+        <p>Feel free to contact us.</p>
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <p>&copy; 2024 MUSCLEMONEY. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

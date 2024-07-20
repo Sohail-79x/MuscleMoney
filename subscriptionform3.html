@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Subscription Form</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Subscribe to Gym Membership</h2>
+        <form id="subscriptionForm" action="submit_subscription.php" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="months">Choose Subscription Duration:</label>
+                <select id="months" name="months">
+                   
+                    <option value="12">12 months ($120)</option>
+                </select>
+            </div>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <script src="script1.js"></script>
+</body>
+</html>
